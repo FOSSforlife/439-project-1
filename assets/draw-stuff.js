@@ -45,3 +45,21 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill  )
     }
     rctx.restore( );
 }
+
+//This is how to fill in cells. Just made a random pattern for now
+function sample_fill_cell( ctx, fill )
+{
+    // initialize the starting point (190, 50)
+    let x=190, y=50;
+    const fill_length = 10;
+    fill = fill || 'black';
+    ctx.fillStyle = fill;
+    for(let i = 0; i<10; i++)
+    {
+        ctx.fillRect(x, y, fill_length, fill_length);
+        x += 10;
+        y += 20;          
+
+    }
+    ctx.restore();
+}
