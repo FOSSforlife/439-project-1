@@ -25,11 +25,8 @@ function draw_title( context )
 // =====================================================  Main ====
   var canvas = document.getElementById( "grid" );
   var context = canvas.getContext( "2d" );
-  draw_rect( context );
-  // Draw a grid
+  cella_rule_45(context);
   draw_grid( context, 10, 50, 'white', 'yellow' );
-  draw_title( context );
-  sample_fill_cell( context );
 
 </script>
 </html>

@@ -2,6 +2,16 @@
 // Time-stamp: <2019-01-21 20:08:33 Chuck Siska>
 // ------------------------------------------------------------
 
+function rule_45_test(lastRowCells) {
+    // will return true if lastRowCells == [1, 0, 1], [0, 1, 1], etc.
+    if(lastRowCells[0] == 1) {
+        return (lastRowCells[1] == 0 && lastRowCells[2] == 1);
+    }
+    else {
+        return !(lastRowCells[1] == 0 && lastRowCells[2] == 1);
+    }
+}
+
 // FUN. Draw filled rect.
 function draw_rect( ctx, stroke, fill ) 
 {
@@ -62,4 +72,53 @@ function sample_fill_cell( ctx, fill )
 
     }
     ctx.restore();
+}
+
+function fill_cells (ctx, cells) {
+    ctx.save();
+
+    const cell_length = 1;
+    ctx.fillStyle = 'lightgrey';
+
+    cells.forEach((row, rowIndex) => {
+        row.forEach(col => {
+            ctx.fillRect(col * cell_length, rowIndex * cell_length, cell_length, cell_length);
+        })
+    })
+    
+    ctx.restore();
+}
+
+function cella_rule_45(ctx) {
+    const gridSize = 400;
+    const grid = Array.from({length: gridSize}, e => []); // 2d array of all cells
+    let lastRow, lastRowCells = [];
+
+    // row iteration
+    grid.forEach((row, i) => {
+        if(i == 0) {
+            row.push(gridSize / 2); // this will fill the 200th column of the first row, assuming 400 gridSize
+        }
+        else {
+            // column iteration
+            for(let col = 0; col < gridSize; col++) {
+                lastRow = grid[i - 1];
+                // console.log(lastRow);
+
+                lastRowCells = [
+                    (lastRow.indexOf(col - 1) !== -1)  ? 1 : 0,
+                    (lastRow.indexOf(col) !== -1)  ? 1 : 0,
+                    (lastRow.indexOf(col + 1) !== -1)  ? 1 : 0 
+                ];
+                
+                // console.log(`${i},${col}: [${lastRowCells[0]}, ${lastRowCells[1]}, ${lastRowCells[2]}]`);
+                if(rule_45_test(lastRowCells)) {
+                    // console.log(col);
+                    row.push(col);
+                }
+            }
+        }
+    });
+
+    fill_cells(ctx, grid);
 }
