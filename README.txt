@@ -1,20 +1,33 @@
-READNE: Notes on an HTML + CSS + JS example
-Time-stamp: <2019-02-03 20:31:18 Chuck Siska>
-------------------------------------------------------------
+- Class Number: 439
 
-How to handle the JS-1 files to get results:
+- Project Number and Name: Project #1 Cella-Rule 45
 
-1. Main HTML file is js-1.html, a web page.
-2. Sibling folder (at same level as .html) is "assets".
-  (You can move this folder elsewhere if you change js-1.html accordingly.)
-3. Web page links to (loads) assets/styles.css, a very simple CSS file.
-4. Web page has some HTML markup for title, header and text.
-5. After body, web page loads a script file from assets with fcns.
-6. After that, another Script section defines another function.
-7. And then runs some "loose" Javascript commands.
+- Team name and members: EJS; Elias Jackson, Jeremy Gibbons, Sina Heydarimolaei, Natalie Ottolia;
 
-How to show (and run) the web page:
-8. Drag and drop the html file onto a browser to see what it does.
+- Introduction:
+  The challenge of this program was to draw the cellular automata Rule 45 on the canvas grid. The algorithm we used was /* to be filled in and explained */. This results in a Big O(N) running time.
 
-(*) Key: use fcn key F12 to open a "javascript console" in your browser
-and see what might be going wrong: errors and warnings.
+- Contents of zip file:
+  README.txt
+  js-1.html
+  assets folder containing: draw-stuff.js and styles.css
+  big_o_analysis.doc
+  
+
+- External Requirements:
+  None
+
+- Set up and installation:
+  (How to show and run the webpage)
+  1. Download the zip file 439-p1_EJS.zip
+  2. Click on the zip file
+  3. Click Extract all onto computer or hard drive
+  4. Drag and drop the js-1.html file onto a browser of your choice
+
+- Sample invocation:
+
+- Features:
+  Rule 45 of cellular automata is shown.
+
+- Bugs (if any):
+  None
